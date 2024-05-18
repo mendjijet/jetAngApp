@@ -22,7 +22,7 @@ const routes: Routes = [
       {path : "profile", component : ProfileComponent},
       {path : "dashboard", component : DashboardComponent},
       {path : "students", component : StudentsComponent},
-      {path : "payments", component : PaymentsComponent},
+      {path : "payments", component : PaymentsComponent, canActivate : [AuthorizationGuard], data : {roles : ['ADMIN']}},
       {path : "loadStudents", component : LoadStudentsComponent,
         canActivate : [AuthorizationGuard], data : {roles : ['ADMIN']}},
       {path : "loadPayments", component : LoadPaymentsComponent,

@@ -43,6 +43,6 @@ export class StudentsComponent implements OnInit, AfterViewInit{
    }
 
    getPayments(student : any) {
-     this.router.navigateByUrl("/payments")
+     this.router.navigateByUrl("/admin/payments")
    }
 }
