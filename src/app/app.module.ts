@@ -1,35 +1,54 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import {
+  MatListItem,
+  MatNavList,
+} from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {
+  MatSortHeader,
+  MatSortModule,
+} from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
+import {
+  AdminTemplateComponent,
+} from './admin-template/admin-template.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminTemplateComponent } from './admin-template/admin-template.component';
-import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
-import {MatButton, MatButtonModule} from "@angular/material/button";
-import {MatIcon, MatIconModule} from "@angular/material/icon";
-import {MatMenu, MatMenuItem, MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
-import {MatDrawerContainer, MatSidenavModule} from "@angular/material/sidenav";
-import {MatListItem, MatNavList} from "@angular/material/list";
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { StudentsComponent } from './students/students.component';
-import { PaymentsComponent } from './payments/payments.component';
-import {MatCard, MatCardHeader, MatCardModule} from "@angular/material/card";
-import {MatDivider, MatDividerModule} from "@angular/material/divider";
-import { LoadStudentsComponent } from './load-students/load-students.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AuthorizationGuard } from './guards/authorization.guard';
+import { HomeComponent } from './home/home.component';
 import { LoadPaymentsComponent } from './load-payments/load-payments.component';
-import {MatTable, MatTableModule} from "@angular/material/table";
-import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
-import {MatSort, MatSortHeader, MatSortModule} from "@angular/material/sort";
-import {MatFormField, MatInput} from "@angular/material/input";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {ReactiveFormsModule} from "@angular/forms";
-import {AuthGuard} from "./guards/auth.guard";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {AuthorizationGuard} from "./guards/authorization.guard";
-import { HttpClientModule } from '@angular/common/http';
+import { LoadStudentsComponent } from './load-students/load-students.component';
+import { LoginComponent } from './login/login.component';
+import { NewPaymentComponent } from './new-payment/new-payment.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { ProfileComponent } from './profile/profile.component';
+import {
+  StudentDetailsComponent,
+} from './student-details/student-details.component';
+import { StudentsComponent } from './students/students.component';
+import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +61,10 @@ import { HttpClientModule } from '@angular/common/http';
     StudentsComponent,
     PaymentsComponent,
     LoadStudentsComponent,
-    LoadPaymentsComponent
+    LoadPaymentsComponent,
+    StudentDetailsComponent,
+    NewPaymentComponent,
+    PaymentDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,12 +86,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    PdfViewerModule,
+    MatProgressSpinnerModule,
   ],
-  providers: [
-    AuthGuard, AuthorizationGuard
-  ],
-  bootstrap: [AppComponent]
+  providers: [AuthGuard, AuthorizationGuard],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

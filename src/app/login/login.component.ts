@@ -1,7 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {AuthenticationService} from "../services/authentication.service";
-import {Route, Router} from "@angular/router";
+import {
+  Component,
+  OnInit,
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+} from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +34,6 @@ export class LoginComponent implements OnInit{
     let password = this.loginFormGroup.value.password;
     let auth = this.authService.login(username, password);
     if(auth==true){
-      console.log(auth);
       this.router.navigateByUrl("/admin");
     }
   }
