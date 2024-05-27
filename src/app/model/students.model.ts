@@ -4,6 +4,9 @@ export interface Student{
     firstname:string,
     lastname:string,
     programId:string,
+    age:number,
+    gender:string,
+    comment:string,
     photo:string
 }
 

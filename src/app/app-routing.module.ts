@@ -8,6 +8,9 @@ import {
   AdminTemplateComponent,
 } from './admin-template/admin-template.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {
+  DialogStudentComponent,
+} from './dialog-student/dialog-student.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthorizationGuard } from './guards/authorization.guard';
 import { HomeComponent } from './home/home.component';
@@ -35,6 +38,7 @@ const routes: Routes = [
       {path : "profile", component : ProfileComponent},
       {path : "dashboard", component : DashboardComponent},
       {path : "students", component : StudentsComponent},
+      {path : "addstudent", component : DialogStudentComponent, canActivate : [AuthorizationGuard], data : {roles : ['ADMIN']}},
       {path : "new-payment/:matricule", component : NewPaymentComponent},
       {path : "payment-details/:paymentId", component : PaymentDetailsComponent},
       {path : "student-details/:matricule", component : StudentDetailsComponent, canActivate : [AuthorizationGuard], data : {roles : ['ADMIN']}},

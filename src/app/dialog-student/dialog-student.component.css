@@ -1,0 +1,112 @@
+mat-form-field{
+    width: 100%;
+}
+
+/* .gender-radio-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  } */
+  
+.gender-radio-button {
+    margin: 5px;
+  }
+
+  .age-right-align {
+    text-align: right;
+  }
+  
+  input.age-right-align::-webkit-outer-spin-button,
+  input.age-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  img {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #000;
+    border-radius: 10%;
+  }
+
+  .avatar-container {
+    position: relative;
+    width: fit-content;
+}
+
+.image-container {
+    height: 100px;
+    width: 100px;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: #fff;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 10px 20px 20px #6c93001a;
+}
+
+.icon-wrapper {
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input[type='file'] {
+        display: none;
+    }
+}
+
+.icon-wrapper {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    padding: .35rem;
+    background-color:#2962FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    top: 75%;
+    z-index: 2;
+    cursor: pointer;
+
+    &:hover {
+        transition: all .25s;
+        background-color: darken(#2962FF, 15%);
+    }
+
+    .icon {
+        color: white;
+    }
+
+    label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input[type='file'] {
+        display: none;
+    }
+}
+
+.box-shadow-avatar{
+    box-shadow: 0 10px 20px 20px #6c93001a;
+}
+
+.image-container {
+    height: 200px;
+    width: 200px;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: #fff;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 10px 20px 20px #6c93001a;
+
+    &.avatar-placeholder{
+        background-image: url('../../assets/avatar.jpg');
+    }
+}

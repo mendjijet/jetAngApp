@@ -1,0 +1,76 @@
+
+<h1 mat-dialog-title>Add Student Form</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+    <form [formGroup]="studentForm">
+<mat-form-field appearance="outline">
+    <mat-label>Matricule</mat-label>
+    <input formControlName="studentMatricule" matInput form placeholder="Matricule"/>
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Firstname</mat-label>
+    <input formControlName="studentFirstName" matInput placeholder="Firstname"/>
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Lastname</mat-label>
+    <input formControlName="studentLastName" matInput placeholder="Lastname"/>
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Program</mat-label>
+    <mat-select formControlName="studentProgram" placeholder="Program">
+        <mat-option value="GL003">GL003</mat-option>
+        <mat-option value="GI001">GI001</mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Date of birth</mat-label>
+    <input formControlName="studentDateOfBirth" matInput [matDatepicker]="pickerdb">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="pickerdb"></mat-datepicker-toggle>
+    <mat-datepicker #pickerdb></mat-datepicker>
+  </mat-form-field>
+  <label id="gender-radio-group-label">Pick your gender</label>
+<mat-radio-group formControlName="studentGender"
+  aria-labelledby="gender-radio-group-label"
+  class="gender-radio-group">
+  @for (gender of genders; track gender) {
+    <mat-radio-button class="gender-radio-button" [value]="gender">{{gender}}</mat-radio-button>
+  }
+</mat-radio-group>
+<mat-form-field appearance="outline">
+    <mat-label>Age</mat-label>
+    <input formControlName="studentAge" matInput type="number" maxlength="2" max="30" min="18" placeholder="Age">
+    <mat-icon matSuffix><span class="material-symbols-outlined">
+        cake
+        </span></mat-icon>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Comment</mat-label>
+    <textarea formControlName="studentComment" matInput></textarea>
+  </mat-form-field>
+
+  <div class="avatar-container">
+    <div class="image-container" *ngIf="imageURL; else placeholder"
+    [ngClass]="{'box-shadow-avatar': !!imageURL}"
+    [ngStyle]="{backgroundImage: 'url(' + imageURL + ')'}">
+    </div>
+
+    <ng-template #placeholder>
+        <div class="image-container avatar-placeholder">
+        </div>
+    </ng-template>
+
+    <label for="avatar-input-file">
+        <div class="icon-wrapper">
+            <input type="file" id="avatar-input-file" accept="image/*" (change)="selectFile($event)" />
+            <mat-icon class="icon" fontIcon="edit"></mat-icon>
+        </div>
+    </label>
+</div>
+</form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+<button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+<button mat-raised-button color="primary" style="margin-left: 8px;" (click)="addStudent()">{{actionBtn}}</button>
+</div>
+
